@@ -5,6 +5,11 @@ import { PeopleCollection } from '../api/peopleCollection.js';
 
 import People from './People.jsx';
 //
+// user Blaze component
+import InsideAccountsUIWrapper from './InsideAccountsUIWrapper.jsx';
+import OutsideAccountsUIWrapper from './OutsideAccountsUIWrapper.jsx';
+
+
 
 // App component - represents the whole app
 class App extends Component {
@@ -24,6 +29,8 @@ class App extends Component {
         <div className="principal">
           <div className="container-fluid">
             <div className="row">
+              <InsideAccountsUIWrapper/>
+              <OutsideAccountsUIWrapper/>
               <div className="col-md-12 temporalNavBar">
               </div>
             </div>
