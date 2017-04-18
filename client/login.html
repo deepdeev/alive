@@ -1,13 +1,13 @@
-<template name="ourLoginInside">
+<template name="ourLoginForms">
     {{#if currentUser}}
-        {{> dashboard}}
+
     {{else}}
         {{> login}}
         {{> register}}
     {{/if}}
 </template>
 
-<template name="ourLoginOutside">
+<template name="ourLoginBar">
     {{#if currentUser}}
         {{> dashboard}}
     {{/if}}
