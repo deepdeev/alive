@@ -3,7 +3,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import { PeopleCollection } from '../api/peopleCollection.js';
 
-import People from './People.jsx';
+import View from './View.jsx';
 //
 // user Blaze component
 import InsideAccountsUIWrapper from './InsideAccountsUIWrapper.jsx';
@@ -17,7 +17,7 @@ class App extends Component {
   constructor(props)
   {
     super(props);
-    //views: "Found People", "Wanted People"
+    //views: "Found People", "Wanted People", "Home"
     this.state = {
       view:"Found People"
 
@@ -39,7 +39,7 @@ class App extends Component {
               <OutsideAccountsUIWrapper/>
               <NavBar currentView={this.state.view} handleViewChange={this.handleViewChange}/>
             </div>
-            <People people={this.props.people} view={this.state.view}/>
+            <View people={this.props.people} view={this.state.view}/>
           </div>
         </div>
     );
