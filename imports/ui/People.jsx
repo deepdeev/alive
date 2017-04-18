@@ -4,7 +4,7 @@ import Person from './Person.jsx';
 export default class People extends Component {
   render()
   {
-    if(this.props.view=="foundPeople")
+    if(this.props.view=="Found People")
     {
       return (
           <div className="row viewFoundPeople">
@@ -65,7 +65,7 @@ export default class People extends Component {
           </div>
       );
     }
-    else if(this.props.view=="wantedPeople")
+    else if(this.props.view=="Wanted People")
     {
       return (
           <div className="row viewWantedPeople">

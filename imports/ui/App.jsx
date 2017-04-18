@@ -9,7 +9,7 @@ import People from './People.jsx';
 import InsideAccountsUIWrapper from './InsideAccountsUIWrapper.jsx';
 import OutsideAccountsUIWrapper from './OutsideAccountsUIWrapper.jsx';
 
-
+import NavBar from './NavBar.jsx';
 
 // App component - represents the whole app
 class App extends Component {
@@ -17,11 +17,17 @@ class App extends Component {
   constructor(props)
   {
     super(props);
-    //views: "foundPeople", "wantedPeople"
+    //views: "Found People", "Wanted People"
     this.state = {
-      view:"wantedPeople"
+      view:"Found People"
 
     };
+    this.handleViewChange=this.handleViewChange.bind(this);
+  }
+
+  handleViewChange(newView)
+  {
+    this.setState({view:newView});
   }
 
   render() {
@@ -33,6 +39,7 @@ class App extends Component {
               <OutsideAccountsUIWrapper/>
               <div className="col-md-12 temporalNavBar">
               </div>
+              <NavBar currentView={this.state.view} handleViewChange={this.handleViewChange}/>
             </div>
             <People people={this.props.people} view={this.state.view}/>
           </div>

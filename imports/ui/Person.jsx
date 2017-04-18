@@ -3,19 +3,19 @@ import React, { Component, PropTypes } from 'react';
 // Person component
 export default class Person extends Component {
   render() {
-    if(this.props.view=="foundPeople")
+    if(this.props.view=="Found People")
     {
       return (
           <tr>
             <td>{this.props.person.name}</td>
             <td>{this.props.person.foundDate.toDateString()}</td>
-            <td>{this.props.person.address}</td>
+            <td>{this.props.person.place}</td>
             <td>{this.props.person.healthState}</td>
           </tr>
 
       );
     }
-    else if(this.props.view=="wantedPeople")
+    else if(this.props.view=="Wanted People")
     {
       return (
           <div className="col-md-3 wantedPeopleBox">
