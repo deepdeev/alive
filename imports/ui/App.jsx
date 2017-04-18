@@ -31,10 +31,9 @@ class App extends Component {
         <div className="principal">
           <div className="container-fluid">
             <div className="row">
-
-              <NavBar currentView={this.state.view} handleViewChange={this.handleViewChange}/>
+              <NavBar currentView={this.state.view} handleViewChange={this.handleViewChange} currentUser={this.props.currentUser}/>
             </div>
-            <View people={this.props.people} view={this.state.view}/>
+            <View people={this.props.people} view={this.state.view} />
           </div>
         </div>
     );
@@ -48,5 +47,6 @@ App.propTypes = {
 export default createContainer(() => {
   return {
     people: PeopleCollection.find({}).fetch(),
+    currentUser: Meteor.user()
   };
 }, App);
