@@ -37,8 +37,6 @@ class App extends Component {
             <div className="row">
               <InsideAccountsUIWrapper/>
               <OutsideAccountsUIWrapper/>
-              <div className="col-md-12 temporalNavBar">
-              </div>
               <NavBar currentView={this.state.view} handleViewChange={this.handleViewChange}/>
             </div>
             <People people={this.props.people} view={this.state.view}/>
