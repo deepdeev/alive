@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import NavBarLink from './NavBarLink.jsx';
+import OutsideAccountsUIWrapper from './OutsideAccountsUIWrapper.jsx';
+
 // NavBar component
 export default class NavBar extends Component {
 
@@ -13,6 +15,7 @@ export default class NavBar extends Component {
               <NavBarLink title="Found People" handleViewChange={this.props.handleViewChange}/>
               <NavBarLink title="Wanted People" handleViewChange={this.props.handleViewChange}/>
               <NavBarLink title="Add People" handleViewChange={this.props.handleViewChange}/>
+              <OutsideAccountsUIWrapper />
             </ul>
           </nav>
           <span className="target"></span>

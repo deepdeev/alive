@@ -2,6 +2,9 @@ import React, {Component, PropTypes} from 'react';
 import Person from './Person.jsx';
 import PersonDetail from './PersonDetail.jsx';
 
+import LoginFormsAccountsUIWrapper from './LoginFormsAccountsUIWrapper.jsx';
+import OutsideAccountsUIWrapper from './OutsideAccountsUIWrapper.jsx';
+
 export default class View extends Component {
   constructor(props)
   {
@@ -79,7 +82,7 @@ export default class View extends Component {
     {
       return (
           <div >
-            {/*TODO David*/}
+            <LoginFormsAccountsUIWrapper/>
           </div>
       );
     }

@@ -185,4 +185,16 @@ thead tr
     margin-bottom: 0vh;
     font-size: 2vw;
 }
+.logOut
+{
+    color:#fafafa;
+}
 
+.logout .logOut
+{
+  color:#fafafa;
+}
+a .logOut:hover
+{
+    color:#F24B4B;
+}

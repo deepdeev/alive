@@ -5,10 +5,6 @@ import { PeopleCollection } from '../api/peopleCollection.js';
 
 import View from './View.jsx';
 //
-// user Blaze component
-import InsideAccountsUIWrapper from './InsideAccountsUIWrapper.jsx';
-import OutsideAccountsUIWrapper from './OutsideAccountsUIWrapper.jsx';
-
 import NavBar from './NavBar.jsx';
 
 // App component - represents the whole app
@@ -35,8 +31,7 @@ class App extends Component {
         <div className="principal">
           <div className="container-fluid">
             <div className="row">
-              <InsideAccountsUIWrapper/>
-              <OutsideAccountsUIWrapper/>
+
               <NavBar currentView={this.state.view} handleViewChange={this.handleViewChange}/>
             </div>
             <View people={this.props.people} view={this.state.view}/>
