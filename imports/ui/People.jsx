@@ -1,7 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 import Person from './Person.jsx';
+import PersonDetail from './PersonDetail.jsx';
 
 export default class People extends Component {
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      currentPerson:0
+
+    };
+  }
   render()
   {
     if(this.props.view=="Found People")
@@ -35,32 +44,7 @@ export default class People extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-3 panelDetailFoundPerson">
-              <div className="row">
-                <div className="col-md-12 box-photo">
-                  <img className="img-responsive" src='/data/images/p3.jpg'></img>
-                </div>
-                <div className="col-md-12 box-info">
-                  <div className="row boxFields">
-                    <div className="col-md-12 boxField-Name">
-                      <p>Kellie Bowling</p>
-                    </div>
-                    <div className="col-md-12 boxField-HealthState">
-                      <p>Alive</p>
-                    </div>
-                    <div className="col-md-12 boxField-Date">
-                      <p><strong>Date: </strong>8/04/2017</p>
-                    </div>
-                    <div className="col-md-12 boxField-Place">
-                      <p><strong>Place: </strong>Principal Church of the City</p>
-                    </div>
-                    <div className="col-md-12 boxField-Message">
-                      <p><strong>Message: </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, possimus commodi, fugiat magnam temporibus vero magni recusandae? Dolore, maxime praesentium.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PersonDetail person={this.props.people[this.state.currentPerson]}/>
 
           </div>
       );
