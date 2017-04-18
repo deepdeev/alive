@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import Person from './Person.jsx';
 import PersonDetail from './PersonDetail.jsx';
 
-export default class People extends Component {
+export default class View extends Component {
   constructor(props)
   {
     super(props);
@@ -75,10 +75,18 @@ export default class People extends Component {
           </div>
       );
     }
+    else if(this.props.view=="Home")
+    {
+      return (
+          <div >
+            {/*TODO David*/}
+          </div>
+      );
+    }
   }
 }
 
-People.propTypes = {
+View.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
   people: PropTypes.array.isRequired,
