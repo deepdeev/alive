@@ -70,6 +70,10 @@ body
 {
     border-bottom: hidden;
 }
+tbody tr
+{
+    cursor:pointer;
+}
 tbody tr:hover
 {
     background-color: var(--secondColor1)!important ;

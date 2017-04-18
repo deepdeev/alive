@@ -2,11 +2,21 @@ import React, { Component, PropTypes } from 'react';
 
 // Person component
 export default class Person extends Component {
+  constructor(props)
+  {
+    super(props);
+    this.handleClick=this.handleClick.bind(this);
+  }
+  handleClick()
+  {
+    this.props.changeCurrentPerson(this.props.index);
+  }
+
   render() {
     if(this.props.view=="Found People")
     {
       return (
-          <tr>
+          <tr onClick={this.handleClick}>
             <td>{this.props.person.name}</td>
             <td>{this.props.person.foundDate.toDateString()}</td>
             <td>{this.props.person.place}</td>

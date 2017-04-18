@@ -13,6 +13,12 @@ export default class View extends Component {
       currentPerson:0
 
     };
+    this.changeCurrentPerson=this.changeCurrentPerson.bind(this);
+  }
+
+  changeCurrentPerson(index)
+  {
+    this.setState({currentPerson:index});
   }
   render()
   {
@@ -41,7 +47,7 @@ export default class View extends Component {
             </tr>
             </thead>
             <tbody id="tableBody">
-            {this.props.people.map((person) => ( <Person key={person.id} person={person} view={this.props.view}/>))}
+            {this.props.people.map((person, index) => ( <Person key={person.id} person={person} view={this.props.view} index={index} changeCurrentPerson={this.changeCurrentPerson}/>))}
             </tbody>
           </table>
                 </div>
