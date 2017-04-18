@@ -4,7 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { PeopleCollection } from '../api/peopleCollection.js';
 
 import People from './People.jsx';
-//
+import NavBar from './NavBar.jsx';
 
 // App component - represents the whole app
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
         <div className="principal">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-md-12 temporalNavBar">
+              <NavBar currentView={true}/>
               </div>
             </div>
             <People people={this.props.people} view={this.state.view}/>
