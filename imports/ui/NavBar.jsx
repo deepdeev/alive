@@ -14,8 +14,6 @@ export default class NavBar extends Component {
               <NavBarLink title="Home" handleViewChange={this.props.handleViewChange}/>
               <NavBarLink title="Found People" handleViewChange={this.props.handleViewChange}/>
               <NavBarLink title="Wanted People" handleViewChange={this.props.handleViewChange}/>
-              {this.props.currentUser? <NavBarLink title="Add People" handleViewChange={this.props.handleViewChange}/>:<span></span>}
-
               <OutsideAccountsUIWrapper />
             </ul>
           </nav>

@@ -15,9 +15,9 @@ if (Meteor.isClient) {
   Template.register.events({
     'submit form': function(event){
         event.preventDefault();
-        var usernameVar = event.target.registerUsername.value;
-        var passwordVar = event.target.registerPassword.value;
-        var userType = event.target.registerUsertype.value;
+        let usernameVar = event.target.registerUsername.value;
+        let passwordVar = event.target.registerPassword.value;
+        let userType = event.target.registerUsertype.value;
         Accounts.createUser({
             username: usernameVar,
             password: passwordVar,
@@ -29,8 +29,8 @@ if (Meteor.isClient) {
     'click #loginBB': function(event){
         event.preventDefault();
         console.log("holle");
-        var usernameVar = event.target.registerUsername.value;
-        var passwordVar = event.target.registerPassword.value;
+        let usernameVar = event.target.registerUsername.value;
+        let passwordVar = event.target.registerPassword.value;
         Meteor.loginWithPassword(usernameVar, passwordVar);
 
     }
@@ -39,9 +39,30 @@ if (Meteor.isClient) {
   Template.login.events({
     'submit form': function(event){
         event.preventDefault();
-        var usernameVar = event.target.loginUsername.value;
-        var passwordVar = event.target.loginPassword.value;
+        let usernameVar = event.target.loginUsername.value;
+        let passwordVar = event.target.loginPassword.value;
         Meteor.loginWithPassword(usernameVar, passwordVar);
     }
   });
 }
+
+if (Meteor.isServer) {
+  // This code only runs on the server
+  // Only publish tasks that are public or belong to the current user
+  Meteor.publish('transactions', function tasksPublication() {
+    return Transactions.find({
+      owner: this.userId
+    });
+  });
+}
+
+Meteor.methods({
+  'people.insert'(person) {
+    // Make sure the user is logged in before inserting a transaction
+    if (! Meteor.userId()) {
+      throw new Meteor.Error('not-authorized');
+    }
+    // console.log("Server: just added: "+ person);
+    PeopleCollection.insert(person);
+  },
+});

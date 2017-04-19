@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import Person from './Person.jsx';
 import PersonDetail from './PersonDetail.jsx';
+import ModalAddFoundPerson from './ModalAddFoundPerson';
+import ModalAddWantedPerson from './ModalAddWantedPerson';
 
 import LoginFormsAccountsUIWrapper from './LoginFormsAccountsUIWrapper.jsx';
 import OutsideAccountsUIWrapper from './OutsideAccountsUIWrapper.jsx';
@@ -10,18 +12,32 @@ export default class View extends Component {
   {
     super(props);
     this.state = {
-      currentPerson:0
+      currentPerson:0,
+      showModal:false
 
     };
     this.changeCurrentPerson=this.changeCurrentPerson.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  changeCurrentPerson(index)
+  changeCurrentPerson(id)
   {
-    this.setState({currentPerson:index});
+    let index = this.props.people.findIndex((person)=>{return person.id==id;});
+    if(index)
+      this.setState({currentPerson:index});
+  }
+  handleOpenModal ()
+  {
+    this.setState({ showModal: true });
+  }
+  handleCloseModal ()
+  {
+    this.setState({ showModal: false });
   }
   render()
   {
+    console.log(this.props.currentUser);
     if(this.props.view=="Found People")
     {
       return (
@@ -36,6 +52,14 @@ export default class View extends Component {
                 <div className="col-md-8">
                   <input className="searchInputFoundPeople" placeholder="Search the name or id of someone..."></input>
                 </div>
+                <div className="col-md-12 row">
+                  <div className="col-md-4"></div>
+                  <label className="col-md-4 addPersonBtnView">
+                    <button className="btn btn-default" onClick={this.handleOpenModal}>Add Found Person</button>
+                    <ModalAddFoundPerson isOpen={this.state.showModal} openFunction={this.handleOpenModal} closeFunction={this.handleCloseModal}/>
+                  </label>
+                  <div className="col-md-4"></div>
+                </div>
                 <div className="col-md-12">
           <table className="table table-hover ">
             <thead>
@@ -47,7 +71,7 @@ export default class View extends Component {
             </tr>
             </thead>
             <tbody id="tableBody">
-            {this.props.people.map((person, index) => ( <Person key={person.id} person={person} view={this.props.view} index={index} changeCurrentPerson={this.changeCurrentPerson}/>))}
+            {this.props.people.filter((person)=>{return person.state=='Found';}).map((person, index) => (<Person key={person.id} person={person} view={this.props.view} index={index} changeCurrentPerson={this.changeCurrentPerson}/>))}
             </tbody>
           </table>
                 </div>
@@ -72,9 +96,17 @@ export default class View extends Component {
                 <div className="col-md-8">
                   <input className="searchInputWantedPeople" placeholder="Search the name or id of someone..."></input>
                 </div>
+                <div className="col-md-12 row">
+                  <div className="col-md-4"></div>
+                  <label className="col-md-4 addPersonBtnView">
+                    <button className="btn btn-default" onClick={this.handleOpenModal}>Add Wanted Person</button>
+                    <ModalAddWantedPerson isOpen={this.state.showModal} openFunction={this.handleOpenModal} closeFunction={this.handleCloseModal}/>
+                  </label>
+                  <div className="col-md-4"></div>
+                </div>
                 <div className="col-md-12">
                   <div className="row" id="wantedPeopleGroup">
-                    {this.props.people.map((person) => ( <Person key={person.id} person={person} view={this.props.view}/>))}
+                    {this.props.people.filter((person)=>{return person.state=='Wanted';}).map((person) => (<Person key={person.id} person={person} view={this.props.view}/>))}
 
                   </div>
                 </div>

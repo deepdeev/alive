@@ -9,7 +9,7 @@ export default class Person extends Component {
   }
   handleClick()
   {
-    this.props.changeCurrentPerson(this.props.index);
+    this.props.changeCurrentPerson(this.props.person.id);
   }
 
   render() {
