@@ -2,8 +2,9 @@ import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
-export const PeopleCollection = new Mongo.Collection('people');
+//Puede que mongo no sea la BD correcta para esta aplicacion, si las personas van a confiar en esta aplicacion puede ser necesario una BD SQL.
 
+export const PeopleCollection = new Mongo.Collection('people');
 
 if (Meteor.isClient) {
   Template.dashboard.events({

@@ -7,7 +7,7 @@ export default class PersonDetail extends Component {
   {
     super(props);
   }
-
+//no se utiliza el atributo State de una persona, recomendaria agregarlo a los detalles o eliminarlo de la BD
   render() {
     if(this.props.person)
     {
