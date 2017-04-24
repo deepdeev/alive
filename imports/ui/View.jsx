@@ -7,6 +7,7 @@ import ModalAddWantedPerson from './ModalAddWantedPerson';
 import LoginFormsAccountsUIWrapper from './LoginFormsAccountsUIWrapper.jsx';
 import OutsideAccountsUIWrapper from './OutsideAccountsUIWrapper.jsx';
 
+//Recomendaria agregar mas parametros a la busqueda de personas en una busqueda avanzada
 export default class View extends Component {
   constructor(props)
   {

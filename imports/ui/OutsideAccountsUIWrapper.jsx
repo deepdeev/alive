@@ -4,6 +4,7 @@ import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze';
 
 export default class OutsideAccountsUIWrapper extends Component {
+  //Buena utilizacion de templates
   componentDidMount() {
     // Use Meteor Blaze to render login buttons
     this.view = Blaze.render(Template.ourLoginBar,
