@@ -4,7 +4,6 @@ import { check } from 'meteor/check';
 
 export const PeopleCollection = new Mongo.Collection('people');
 
-
 if (Meteor.isClient) {
   Template.dashboard.events({
     'click .logout': function(event){
@@ -18,10 +17,14 @@ if (Meteor.isClient) {
         let usernameVar = event.target.registerUsername.value;
         let passwordVar = event.target.registerPassword.value;
         let userType = event.target.registerUsertype.value;
+        console.log("tipo de user es: " + userType);
+
         Accounts.createUser({
             username: usernameVar,
             password: passwordVar,
-            type: userType
+            profile: {
+              type: userType,
+            }
         });
     }
   },
