@@ -31,7 +31,7 @@ Then run the tests using `locust --host=http://localhost:3000` as our Meteor app
 
 Enter  http://127.0.0.1:8089 in your browser. That should display the web interface for locust.
 
-Our results are on the [load_testing](https://github.com/deepdeev/alive/tree/master/load_testing) folder
+Our results are on the [load_testing](https://github.com/deepdeev/alive/tree/master/load_testing/results.md) folder
 
 ## Usability testing
 
