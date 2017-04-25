@@ -1,6 +1,6 @@
-#Alive
+# Alive
 
-##To run the project
+## To run the project
 
 First, clone the project using `git clone https://github.com/deepdeev/alive.git`
 
@@ -9,7 +9,7 @@ Then in the project directory, `run meteor`. This will run the application and t
 ### Notes
 When you run the application, you will get warnings related to the meteor version that we are using. Ignore them.
 
-##To run the API tests
+## To run the API tests
 
 Make sure you have the required packages with meteor add practicalmeteor:mocha
 
