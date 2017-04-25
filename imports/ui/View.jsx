@@ -19,12 +19,14 @@ export default class View extends Component {
     this.changeCurrentPerson=this.changeCurrentPerson.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.search=this.search.bind(this);
   }
 
   changeCurrentPerson(id)
   {
     let index = this.props.people.findIndex((person)=>{return person.id==id;});
-    if(index)
+    console.log(index);
+    if(index||index==0)
       this.setState({currentPerson:index});
   }
   handleOpenModal ()
@@ -34,6 +36,11 @@ export default class View extends Component {
   handleCloseModal ()
   {
     this.setState({ showModal: false });
+  }
+  search(query)
+  {
+    this.props.search(query);
+    this.setState({ currentPerson:0 });
   }
   render()
   {
@@ -49,9 +56,11 @@ export default class View extends Component {
                 <div className="col-md-12 panelFoundPeople-title">
                   <p>Found People</p>
                 </div>
+                <div className="col-md-2"></div>
                 <div className="col-md-8">
-                  <input className="searchInputFoundPeople" placeholder="Search the name or id of someone..."></input>
+                  <input className="searchInputFoundPeople" placeholder="Search the name or id of someone..." onChange={(event) => this.search(event.target.value)}></input>
                 </div>
+                <div className="col-md-2"></div>
                 <div className="col-md-12 row">
                   <div className="col-md-4"></div>
                   <label className="col-md-4 addPersonBtnView">
@@ -93,9 +102,11 @@ export default class View extends Component {
                 <div className="col-md-12 panelWantedPeople-title">
                   <p>Wanted People</p>
                 </div>
+                <div className="col-md-2"></div>
                 <div className="col-md-8">
-                  <input className="searchInputWantedPeople" placeholder="Search the name or id of someone..."></input>
+                  <input className="searchInputWantedPeople" placeholder="Search the name or id of someone..." onChange={(event) => this.search(event.target.value)}></input>
                 </div>
+                <div className="col-md-2"></div>
                 <div className="col-md-12 row">
                   <div className="col-md-4"></div>
                   <label className="col-md-4 addPersonBtnView">
@@ -119,7 +130,8 @@ export default class View extends Component {
     else if(this.props.view=="Home")
     {
       return (
-          <div >
+          <div>
+          <div className="background-image"></div>
             <LoginFormsAccountsUIWrapper/>
           </div>
       );
