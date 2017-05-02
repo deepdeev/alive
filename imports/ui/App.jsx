@@ -15,7 +15,7 @@ class App extends Component {
     super(props);
     //views: "Found People", "Wanted People", "Home"
     this.state = {
-      view:"Found People",
+      view:"Home",
       query1:"",
       query2:""
     };
@@ -72,7 +72,7 @@ class App extends Component {
   renderView()
   {
     let filteredPeople=this.filteredPeople();
-    return <View people={filteredPeople} view={this.state.view} search={this.search}/>
+    return <View people={filteredPeople} view={this.state.view} search={this.search} currentUser={this.props.currentUser}/>
   }
 
   render() {

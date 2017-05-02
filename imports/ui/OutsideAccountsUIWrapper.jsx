@@ -15,6 +15,6 @@ export default class OutsideAccountsUIWrapper extends Component {
   }
   render() {
     // Just render a placeholder container that will be filled in
-    return <span className="customHide" ref="ourcontainer" />;
+    return <span className="out" ref="ourcontainer" />;
   }
 }

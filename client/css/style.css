@@ -33,12 +33,16 @@ body
 }
 .temporalNavBar {
     height: 10vh;
+    /*position: fixed;*/
+    /*right: 0;*/
+    /*top: 0;*/
     background-color: var(--secondColor2);
-
+    /*z-index: 0!important;*/
 }
 .viewFoundPeople, .viewWantedPeople
 {
     margin-top: 5vh;
+    /*z-index: -1!important;*/
 }
 /*View FoundPeople*/
 .searchInputFoundPeople {
@@ -245,6 +249,7 @@ a .logOut:hover
 /*}*/
 .modalAddFoundPerson
 {
+    z-index: 5!important;
     background-color: var(--mainColor2);
     height: 80vh;
     width: 26vw;
@@ -258,6 +263,7 @@ a .logOut:hover
 }
 .modalAddWantedPerson
 {
+    z-index: 5!important;
     background-color: var(--mainColor2);
     height: 65vh;
     width: 26vw;
@@ -315,7 +321,7 @@ a .logOut:hover
     position: fixed;
     left: 0;
     right: 0;
-    z-index: -1;
+    z-index: -1!important;
 
     display: block;
     background-image: url('/data/background/fireman.jpg');
@@ -328,4 +334,27 @@ a .logOut:hover
     /*-ms-filter: blur(2px);*/
     filter: blur(2px);
     filter: grayscale(40%);
+}
+.out
+{
+    position: absolute;
+    right: 1vw;
+    top: 1vh;
+    height: 50%;
+    line-height: 0.8!important;
+    text-align: center;
+}
+.out p
+{
+    font-size: 1vw;
+}
+.out a
+{
+    font-size: 2vw;
+}
+.out a, .out p
+{
+    padding: 2px!important;
+    margin: 2px;
+
 }

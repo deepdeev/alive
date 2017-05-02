@@ -64,7 +64,7 @@ export default class View extends Component {
                 <div className="col-md-12 row">
                   <div className="col-md-4"></div>
                   <label className="col-md-4 addPersonBtnView">
-                    <button className="btn btn-default" onClick={this.handleOpenModal}>Add Found Person</button>
+                    {this.props.currentUser&&this.props.currentUser.profile.type=='rescuer'?<button className="btn btn-default" onClick={this.handleOpenModal}>Add Found Person</button>:<span> </span>}
                     <ModalAddFoundPerson isOpen={this.state.showModal} openFunction={this.handleOpenModal} closeFunction={this.handleCloseModal}/>
                   </label>
                   <div className="col-md-4"></div>
